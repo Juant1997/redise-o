@@ -1,0 +1,307 @@
+/* Estilos base - Mobile-first */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif; /* Sans-serif para texto general */
+    line-height: 1.6;
+    color: #222; /* Texto principal */
+    background-color: #f5f5f5; /* Gris claro */
+}
+
+h1, h2, h3 {
+    font-family: Georgia, serif; /* Serif para títulos */
+}
+
+/* Header */
+header {
+    background-color: #8B0000; /* Rojo institucional */
+    color: white;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative; /* Para posicionar hamburger */
+}
+
+.logo h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Menú hamburguesa */
+.menu-toggle {
+    display: none; /* Checkbox oculto */
+}
+
+.hamburger {
+    display: block; /* Visible en móvil */
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 5px 0;
+    transition: 0.3s;
+    transform-origin: center;
+}
+
+/* Animación del hamburger cuando checked */
+#menu-toggle:checked ~ .hamburger span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+#menu-toggle:checked ~ .hamburger span:nth-child(2) {
+    opacity: 0;
+}
+
+#menu-toggle:checked ~ .hamburger span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+nav {
+    display: none; /* Oculto por defecto en móvil */
+    transition: opacity 0.3s ease; /* Transición suave */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column; /* Vertical en móvil */
+    gap: 0.5rem;
+    width: 100%;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+/* Overlay del menú hamburguesa */
+#menu-toggle:checked ~ nav {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #8B0000;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#menu-toggle:checked ~ nav ul {
+    flex-direction: column;
+    gap: 2rem;
+    font-size: 2rem;
+}
+
+/* Main */
+main {
+    display: flex;
+    flex-direction: column; /* Una columna en móvil */
+    gap: 2rem;
+    padding: 1rem;
+}
+
+/* Sección info revista */
+.info-revista {
+    order: 2; /* Segundo en móvil */
+}
+
+.portada {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.datos p {
+    margin-bottom: 0.5rem;
+}
+
+.descripcion {
+    margin-top: 1rem;
+}
+
+/* Sección listado números */
+.listado-numeros {
+    order: 1; /* Primero en móvil */
+}
+
+.anos {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.ano {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.ano h3 {
+    color: #8B0000;
+    margin-bottom: 0.5rem;
+}
+
+.ano ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.ano a {
+    color: #8B0000;
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    border: 1px solid #cccccc; /* Gris medio */
+    border-radius: 0.25rem;
+    transition: background-color 0.3s;
+}
+
+.ano a:hover, .ano a:focus, .ano a:active {
+    background-color: #f5f5f5;
+}
+
+/* Aside */
+aside {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    order: 3;
+}
+
+aside .btn {
+    display: inline-block;
+    background-color: #8B0000;
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 0.25rem;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+    transition: background-color 0.3s;
+}
+
+aside .btn:hover, aside .btn:focus, aside .btn:active {
+    background-color: #A00000;
+}
+
+/* Footer */
+footer {
+    background-color: #8B0000;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+footer ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover, footer a:focus, footer a:active {
+    text-decoration: underline;
+}
+
+/* Media Queries */
+
+/* Tablet: >= 768px */
+@media (min-width: 768px) {
+    .hamburger {
+        display: none; /* Ocultar hamburguesa */
+    }
+
+    nav {
+        display: flex; /* Mostrar nav normal */
+    }
+
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        flex: 1;
+    }
+
+    nav ul {
+        flex-direction: row; /* Horizontal en tablet */
+        justify-content: center;
+        flex: 2;
+    }
+
+    .idioma {
+        flex: 1;
+        text-align: right;
+        margin-top: 0;
+    }
+
+    main {
+        display: grid; /* Grid para tablet */
+        grid-template-columns: 1fr 2fr; /* Info revista izquierda, listado derecha */
+        gap: 2rem;
+    }
+
+    .info-revista {
+        order: 1; /* Primera columna */
+    }
+
+    .listado-numeros {
+        order: 2; /* Segunda columna */
+    }
+
+    aside {
+        grid-column: 1 / -1; /* Abajo de ambas columnas */
+        order: 3;
+    }
+}
+
+/* Desktop: >= 1024px */
+@media (min-width: 1024px) {
+    main {
+        grid-template-columns: 1fr 2fr 1fr; /* Info, listado, aside */
+    }
+
+    aside {
+        order: 3; /* Tercera columna */
+        grid-column: 3;
+    }
+
+    .anos {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+
+    .ano {
+        padding: 1.5rem;
+    }
+}
